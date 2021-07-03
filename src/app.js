@@ -1,7 +1,6 @@
 App = {
   loading: false,
   contracts: {},
-
   load: async () => {
     await App.loadWeb3()
     await App.loadAccount()
@@ -44,7 +43,7 @@ App = {
 
   loadAccount: async () => {
     // Set the current blockchain account
-    App.account = web3.eth.accounts[0]
+    App.account = (await web3.eth.getAccounts())[0];
   },
 
   loadContract: async () => {
